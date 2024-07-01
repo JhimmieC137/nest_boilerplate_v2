@@ -37,9 +37,7 @@ services:
     ports:
       - ${APP_PORT}:${APP_PORT}
     volumes:
-      - type: bind
-        source: .
-        target: /usr/src/app
+      - ./:/usr/src/app
     # working_dir: /usr/src/app
     tty: true
     restart: on-failure

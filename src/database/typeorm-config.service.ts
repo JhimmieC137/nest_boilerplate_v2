@@ -9,13 +9,27 @@ export class TypeOrmConfigService implements TypeOrmOptionsFactory {
 
   createTypeOrmOptions(): TypeOrmModuleOptions {
     return {
-      type: this.configService.get('database.type', { infer: true }),
-      url: this.configService.get('database.url', { infer: true }),
-      host: this.configService.get('database.host', { infer: true }),
-      port: this.configService.get('database.port', { infer: true }),
-      username: this.configService.get('database.username', { infer: true }),
-      password: this.configService.get('database.password', { infer: true }),
-      database: this.configService.get('database.name', { infer: true }),
+      type:
+        this.configService.get('database.type', { infer: true }) ||
+        process.env.DATABASE_TYPE,
+      url:
+        this.configService.get('database.url', { infer: true }) ||
+        process.env.DATABASE_URL,
+      host:
+        this.configService.get('database.host', { infer: true }) ||
+        process.env.DATABASE_HOST,
+      port:
+        this.configService.get('database.port', { infer: true }) ||
+        process.env.DATABASE_PORT,
+      username:
+        this.configService.get('database.username', { infer: true }) ||
+        process.env.DATABASE_USERNAME,
+      password:
+        this.configService.get('database.password', { infer: true }) ||
+        process.env.DATABASE_PASSWORD,
+      database:
+        this.configService.get('database.name', { infer: true }) ||
+        process.env.DATABASE_NAME,
       synchronize: this.configService.get('database.synchronize', {
         infer: true,
       }),
