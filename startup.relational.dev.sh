@@ -5,4 +5,4 @@ set -e
 # npm run app:config
 npm run migration:run
 npm run seed:run:relational
-npm run start:dev
+npm run start:prod
