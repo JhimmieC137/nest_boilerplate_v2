@@ -36,15 +36,15 @@ services:
       dockerfile: Dockerfile
     ports:
       - ${APP_PORT}:${APP_PORT}
-    # volumes:
-    #   - type: bind
-    #     source: .
-    #     target: /usr/src/app
+    volumes:
+      - type: bind
+        source: .
+        target: /usr/src/app
     # working_dir: /usr/src/app
-    # tty: true
-    # restart: on-failure
-    # depends_on:
-    #   - postgres
+    tty: true
+    restart: on-failure
+    depends_on:
+      - postgres
 
 volumes:
   boilerplate-db:
